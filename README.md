@@ -1,6 +1,3 @@
-
-
 ## Introduce
 
-一个基于`Vue`的`openlayers`组件库
-
+基于`openlayers`封装的`js`库

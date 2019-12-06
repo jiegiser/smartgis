@@ -1,7 +1,7 @@
 {
   "name": "smartgis",
   "version": "1.0.0",
-  "description": "一个基于`Vue`的`openlayers`组件库",
+  "description": "基于`openlayers`封装的`js`库",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -20,24 +20,31 @@
   "author": "jiegiser",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jiegiser/Openlayers-vue/issues"
+    "url": "https://github.com/jiegiser/smartgis/issues"
   },
-  "homepage": "https://github.com/jiegiser/Openlayers-vue#readme",
+  "homepage": "https://github.com/jiegiser/smartgis#readme",
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.1",
     "csv-loader": "^3.0.2",
+    "eslint": "^6.7.2",
+    "eslint-loader": "^3.0.2",
     "file-loader": "^5.0.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "markdown-loader": "^5.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2",
+    "workbox-webpack-plugin": "^4.3.1",
     "xml-loader": "^1.2.1"
   }
 }

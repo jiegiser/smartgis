@@ -11,16 +11,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const base = {
   // 基础配置
   entry: './src/index.js',
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../dist')
-  },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.css$/,
@@ -71,6 +67,25 @@ const base = {
     }),
     new CleanWebpackPlugin()
   ],
+  //去除控制台提示性能的问题
+  performance: false,
+  // 修改配置，进行代码分割进行打包，以及去除打包成功之后添加的vendors~前缀
+  optimization: {
+    runtimeChunk: {
+      name: 'runtime'
+    },
+    usedExports: true,
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          name: 'vendors'
+        }
+      }
+    }
+  },
   resolve: {
     alias: {
       src: path.resolve(__dirname, '../src')

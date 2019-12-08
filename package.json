@@ -1,12 +1,16 @@
 {
   "name": "smartgis",
   "version": "1.0.0",
+  "sideEffects": [
+    "*.css"
+  ],
   "description": "基于`openlayers`封装的`js`库",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --env.production --config ./build/webpack.base",
     "dev": "webpack-dev-server --env.development --config ./build/webpack.base",
+    "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,7 +29,9 @@
   "homepage": "https://github.com/jiegiser/smartgis#readme",
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.4",
+    "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
@@ -38,13 +44,23 @@
     "html-webpack-plugin": "^3.2.0",
     "markdown-loader": "^5.1.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
+    "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "^4.3.1",
     "xml-loader": "^1.2.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "@babel/runtime": "^7.7.6",
+    "@babel/runtime-corejs2": "^7.7.6",
+    "core-js": "^2.6.10"
   }
 }

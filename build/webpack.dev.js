@@ -3,7 +3,11 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'development',
   // 打开souce map 追踪代码
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
+  // 查看哪些模块使用就进行打包-tree-shaking
+  optimization: {
+    usedExports: true
+  },
   devServer: {
     // 必须配置的选项，服务启动的目录，默认为根目录
     contentBase: path.resolve(__dirname, '../dist'),
@@ -15,6 +19,10 @@ module.exports = {
     compress: true,
     // 指定服务启动的端口号
     port: '8088',
+    // 代理接口
+    proxy: {
+      '/api': 'http://localhost:3000'
+    },
     // 出现错误时是否在浏览器上出现遮罩层提示
     overlay: true,
     // 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html。通过设置为 true 进行启用

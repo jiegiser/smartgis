@@ -10,32 +10,56 @@ const HTMLWebpakcPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const base = {
   // 基础配置
-  entry: './src/index.js',
+  entry: {
+    // 配置多文件打包
+    main: './src/index.js',
+    sub: './src/sub.js'
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: ['babel-loader', 'eslint-loader']
+        loader: ['babel-loader','eslint-loader']
       },
       {
         test: /\.css$/,
+        // postcss-loader是增加厂商前缀
+        use: [ 'style-loader', 'css-loader', 'postcss-loader']
+      },
+      {
+        test: /\.scss$/,
+        // loader执行顺序从下到上
         use: [
           'style-loader',
-          // 添加配置
           {
             loader: 'css-loader',
             options: {
-              // 开启sourceMap
-              sourceMap: true
+              importLoaders: 2,
+              // 开启模块化打包
+              modules: true
             }
-          }
+          },
+          'sass-loader',
+          'postcss-loader'
         ]
       },
       // 解析图片资源
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              // 占位符placeholders，修改打包后的文件名与之前的保持一致
+              name: '[name].[ext]',
+              // 设置将图片打包到指定文件夹
+              outputPath: 'images/',
+              // 如果图片超过2048个字节，也就是2kb就将图片打包到imagees文件夹中，如果小于，就直接生成一个base:64的字符串进行显示
+              limit: 2048
+            }
+          }
+        ]
       },
       // 解析字体
       {
@@ -58,6 +82,7 @@ const base = {
       }
     ]
   },
+  // Plugin可以在webpack运行到某一时刻的时候，帮你做一些事情，很类似vue的声明周期函数
   plugins: [
     new HTMLWebpakcPlugin({
       // 用于生成的HTML文档的标题

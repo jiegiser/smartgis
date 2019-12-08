@@ -7,6 +7,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
   mode: 'production',
+  devtool: 'cheap-module-source-map',
   optimization: {
     minimizer: [new OptimizeCssAssetsPlugin({})]
   },
@@ -23,6 +24,8 @@ module.exports = {
     })
   ],
   output: {
+    // 打包后的文件加上cdn地址
+    // publicPath: 'cdn地址',
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist')
   }

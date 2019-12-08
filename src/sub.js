@@ -1,17 +1,13 @@
 import 'src/index.css'
-import img from './logo.png'
-function createImg() {
-  const element = document.createElement('img')
-  element.src = img
+function component() {
+  const element = document.createElement('div')
+  element.innerHTML = 'Hello World'
+  setTimeout(() => {
+    console.log('es6语法')
+  }, 1000)
   return element
 }
-const pr = new Promise((resolve, reject) => {
-  resolve('success')
-})
-pr.then(result => {
-  console.log('promise', result)
-})
-document.body.appendChild(createImg())
+document.body.appendChild(component())
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker

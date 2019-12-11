@@ -8,6 +8,8 @@ function createImg() {
 const pr = new Promise((resolve, reject) => {
   resolve('success')
 })
+let [foo, [[bar], baz]] = [1, [[2], 3]];
+console.log(foo, bar, baz)
 pr.then(result => {
   console.log('promise', result)
 })

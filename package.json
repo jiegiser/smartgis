@@ -1,9 +1,7 @@
 {
   "name": "smartgis",
   "version": "1.0.0",
-  "sideEffects": [
-    "*.css"
-  ],
+  "sideEffects": false,
   "description": "基于`openlayers`封装的`js`库",
   "main": "index.js",
   "scripts": {
@@ -42,6 +40,7 @@
     "file-loader": "^5.0.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "imports-loader": "^0.8.0",
     "markdown-loader": "^5.1.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",

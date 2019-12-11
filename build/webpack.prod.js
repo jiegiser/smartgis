@@ -27,6 +27,7 @@ module.exports = {
     // 打包后的文件加上cdn地址
     // publicPath: 'cdn地址',
     filename: '[name].js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    chunkFilename: '[name].[contenthash].js'
   }
 }

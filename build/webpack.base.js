@@ -20,7 +20,18 @@ const base = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: ['babel-loader','eslint-loader']
+        use: [
+          // // 每个模块中的this指向我们的windos对象
+          // {
+          //   loader: 'imports-loader?this=>window'
+          // },
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'eslint-loader'
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -106,7 +117,8 @@ const base = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          name: 'vendors'
+          name: 'vendors',
+          enforce: true
         }
       }
     }

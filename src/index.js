@@ -1,28 +1,19 @@
-import 'src/index.css'
-import img from './logo.png'
-function createImg() {
-  const element = document.createElement('img')
-  element.src = img
-  return element
-}
-const pr = new Promise((resolve, reject) => {
-  resolve('success')
-})
-let [foo, [[bar], baz]] = [1, [[2], 3]];
-console.log(foo, bar, baz)
-pr.then(result => {
-  console.log('promise', result)
-})
-document.body.appendChild(createImg())
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then(registration => {
-        console.log('SW registered: ', registration)
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError)
-      })
-  })
+/*
+ * @Descripttion: 
+ * @Author: jiegiser
+ * @Date: 2019-12-06 16:05:55
+ * @LastEditors: jiegiser
+ * @LastEditTime: 2019-12-13 19:08:58
+ */
+import ol from 'ol'
+import mixin from './utils/mixins'
+import Map from './map/Map'
+import View from './map/View'
+import BaseLayers from './layer/BaseLayers'
+class S extends mixin(
+  Map,
+  View,
+  BaseLayers
+) {
+  super()
 }

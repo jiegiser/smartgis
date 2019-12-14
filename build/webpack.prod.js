@@ -28,6 +28,9 @@ module.exports = {
     // publicPath: 'cdn地址',
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
-    chunkFilename: '[name].[contenthash].js'
+    chunkFilename: '[name].[contenthash].js',
+    libraryTarget: 'umd',
+    // 将s挂载到了全局变量上
+    library: 'S'
   }
 }

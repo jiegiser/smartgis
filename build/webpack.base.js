@@ -27,9 +27,6 @@ const base = {
           // },
           {
             loader: 'babel-loader'
-          },
-          {
-            loader: 'eslint-loader'
           }
         ]
       },

@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: 
+ * @Author: jiegiser
+ * @Date: 2019-12-13 17:25:49
+ * @LastEditors  : jiegiser
+ * @LastEditTime : 2019-12-21 16:54:08
+ */
 // 继承混合类
 const copyProperties = (target, source) => {
   for (let key of Reflect.ownKeys(source)) {
